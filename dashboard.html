@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body class="bg-purple-100 flex items-center justify-center h-screen">
+    <div class="text-center animate__animated animate__fadeIn">
+        <h1 class="text-4xl mb-4 text-purple-700">Welcome to Your Dashboard</h1>
+        <p class="mb-8 text-lg text-purple-600">You will be redirected shortly...</p>
+    </div>
+    <script>
+        setTimeout(function() {
+            var userRole = 'employee'; 
+            if (userRole === 'admin') {
+                window.location.href = 'admin_dashboard.php';
+            } else {
+                window.location.href = 'employee_dashboard.php';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
