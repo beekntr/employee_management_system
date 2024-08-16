@@ -1,0 +1,220 @@
+*{
+    font-family: poppins;
+   
+}
+body{
+    margin: 0;
+    padding: 0 40px 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e5e5e5;
+    animation: fadeInDown 1s 0s;
+}
+.content {
+    width: 330px;
+    padding: 40px 30px;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: 10px;
+    box-shadow: -3px -3px 7px #ffffff73,
+                 2px 2px 5px rgba(94,104,121,0.288);
+  }
+  
+  .content .text {
+    font-size: 33px;
+    font-weight: 400;
+    margin-bottom: 35px;
+    color: #595959;
+  }
+  
+  .field {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    position: relative;
+  }
+  
+  .field:nth-child(2) {
+    margin-top: 20px;
+  }
+  
+  .field .input {
+    height: 100%;
+    width: 100%;
+    padding-left: 45px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background: #dde1e7;
+    color: #595959;
+    border-radius: 25px;
+    box-shadow: inset 2px 2px 5px #BABECC,
+                inset -5px -5px 10px #ffffff73;
+  }
+  
+  .field .input:focus {
+    box-shadow: inset 1px 1px 2px #BABECC,
+                inset -1px -1px 2px #ffffff73;
+  }
+  
+  .field .span {
+    position: absolute;
+    color: #595959;
+    width: 50px;
+    line-height: 55px;
+  }
+  
+  .field .label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 45px;
+    pointer-events: none;
+    color: #666666;
+  }
+  
+  .field .input:valid ~ label {
+    opacity: 0;
+  }
+  
+  .button {
+    margin: 15px 0;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: 400;
+    background: #dde1e7;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #595959;
+    box-shadow: 2px 2px 5px #BABECC,
+               -5px -5px 10px #ffffff73;
+               background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  }
+  
+  .button:focus {
+    color: #595959;
+    box-shadow: inset 2px 2px 5px #BABECC,
+               inset -5px -5px 10px #ffffff73;
+  }
+  
+  .sign-up {
+    margin: 10px 0;
+    color: #595959;
+    font-size: 16px;
+  }
+  
+  .sign-up a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  .sign-up a:hover {
+    text-decoration: underline;
+  }
+  /* Light Mode Colors */
+:root {
+    --background-color: #e5e5e5;
+    --text-color: #595959;
+    --form-bg-color: #fdfbfb;
+    --button-bg-color: #89f7fe;
+    --label-color: #666666;
+    --input-bg-color: #dde1e7;
+}
+
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --background-color: #1e1e1e;
+    --text-color: #ffffff;
+    --form-bg-color: #2c2c2c;
+    --button-bg-color: #4e4e4e;
+    --label-color: #cfcfcf;
+    --input-bg-color: #333333;
+}
+
+/* Apply Colors to the Elements */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.content {
+    background-color: var(--form-bg-color);
+}
+
+.field .input {
+    background-color: var(--input-bg-color);
+}
+
+.button {
+    background-color: var(--button-bg-color);
+}
+
+.field .label {
+    color: var(--label-color);
+}
+
+/* Switcher Styles */
+#mode-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+#mode-switcher label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#mode-switcher .relative {
+    position: relative;
+    width: 52px;
+    height: 28px;
+}
+
+#mode-switcher .block {
+    background-color: #ccc;
+    border-radius: 14px;
+    height: 100%;
+    position: relative;
+    transition: background-color 0.25s ease-in-out;
+}
+
+#mode-switcher input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#mode-switcher .dot {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.25s ease-in-out;
+}
+
+#mode-switcher input:checked ~ .block {
+    background-color: #4a5568;
+}
+
+#mode-switcher input:checked ~ .dot {
+    transform: translateX(24px);
+}
+
+/* Smooth Transition */
+* {
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
