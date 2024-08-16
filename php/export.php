@@ -18,7 +18,7 @@ class PDF extends FPDF
     }
 }
 
-// Create a new PDF instance with landscape orientation
+
 $pdf = new PDF('L', 'mm', 'A4');
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 12);
@@ -26,10 +26,9 @@ $pdf->SetFont('Arial', '', 12);
 $sql = "SELECT * FROM employees";
 $result = $conn->query($sql);
 
-// Column widths
+
 $widths = array(5, 50, 40, 70, 60, 30, 20, 30);
 
-// Header
 $pdf->Cell($widths[0], 10, 'ID', 1);
 $pdf->Cell($widths[1], 10, 'Name', 1);
 $pdf->Cell($widths[2], 10, 'Phone', 1);

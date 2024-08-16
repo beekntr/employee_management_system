@@ -116,7 +116,7 @@ body{
   .sign-up a:hover {
     text-decoration: underline;
   }
-  /* Light Mode Colors */
+  
 :root {
     --background-color: #e5e5e5;
     --text-color: #595959;
@@ -126,7 +126,7 @@ body{
     --input-bg-color: #dde1e7;
 }
 
-/* Dark Mode Colors */
+
 [data-theme="dark"] {
     --background-color: #1e1e1e;
     --text-color: #ffffff;
@@ -136,7 +136,7 @@ body{
     --input-bg-color: #333333;
 }
 
-/* Apply Colors to the Elements */
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -158,7 +158,6 @@ body {
     color: var(--label-color);
 }
 
-/* Switcher Styles */
 #mode-switcher {
     position: fixed;
     top: 20px;

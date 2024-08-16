@@ -56,7 +56,7 @@ $result = $conn->query($sql);
         table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 10px; /* Adds space between the cells */
+            border-spacing: 10px; 
             margin-bottom: 20px;
         }
         table th, table td {
@@ -93,7 +93,6 @@ $result = $conn->query($sql);
         }
         
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             h1 {
                 font-size: 24px;

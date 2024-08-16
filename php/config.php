@@ -1,8 +1,8 @@
 <?php
-$servername = "srv1497.hstgr.io";
-$username = "u188323907_lucifer"; 
-$password = "Luciferwasinnocent@88"; 
-$dbname = "u188323907_employe_manage";
+$servername = "";
+$username = ""; 
+$password = ""; 
+$dbname = "";
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -142,7 +142,6 @@ $employee = $result->fetch_assoc();
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <div class="navbar">
         <h1 class= "empdsh">Employee Dashboard</h1>
         <div class="profile-container">
@@ -155,7 +154,6 @@ $employee = $result->fetch_assoc();
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="content">
         <div class="content-box animate__animated animate__fadeInUp">
             <h1>Welcome, <?php echo $employee['name']; ?>!</h1>
@@ -179,7 +177,6 @@ $employee = $result->fetch_assoc();
             }
         }
 
-        // Close dropdown if clicking outside of it
         window.onclick = function(event) {
             if (!event.target.matches('.profile-icon')) {
                 var dropdown = document.getElementById('dropdown-menu');
