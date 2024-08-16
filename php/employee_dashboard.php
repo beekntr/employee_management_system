@@ -30,7 +30,10 @@ $employee = $result->fetch_assoc();
             <p><strong>Home Address:</strong> <?php echo $employee['address']; ?></p>
             <p><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
             <p><strong>Age:</strong> <?php echo $employee['age']; ?></p>
+            <br>
+            <a href="logout.php" class="bg-purple-500 text-white px-4 py-2 rounded">Logout</a>
         </div>
+       
     </div>
 </body>
 </html>
