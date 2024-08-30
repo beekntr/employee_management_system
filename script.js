@@ -1,32 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const loadingScreen = document.getElementById('loading-screen');
-    const minLoadTime = 2000; 
-    const startTime = Date.now();
+  const loadingScreen = document.getElementById('loading-screen');
+  const minLoadTime = 2000; 
+  const startTime = Date.now();
 
-    function hideLoadingScreen() {
-      const elapsedTime = Date.now() - startTime;
-      if (elapsedTime < minLoadTime) {
-        setTimeout(hideLoadingScreen, minLoadTime - elapsedTime);
-      } else {
-        loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-          loadingScreen.style.display = 'none';
-        }, 500);
-      }
+  function hideLoadingScreen() {
+    const elapsedTime = Date.now() - startTime;
+    if (elapsedTime < minLoadTime) {
+      setTimeout(hideLoadingScreen, minLoadTime - elapsedTime);
+    } else {
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500);
     }
-    window.addEventListener('load', hideLoadingScreen);
-  });
- document.addEventListener('DOMContentLoaded', () => {
-    const modeToggle = document.getElementById('mode-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    if (currentTheme === 'dark') {
-        modeToggle.checked = true;
-    }
-    
-    modeToggle.addEventListener('change', () => {
-        const theme = modeToggle.checked ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    });
+  }
+
+  window.addEventListener('load', hideLoadingScreen);
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const modeToggle = document.getElementById('mode-toggle');
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  if (currentTheme === 'dark') {
+      modeToggle.checked = true;
+  }
+  
+  modeToggle.addEventListener('change', () => {
+      const theme = modeToggle.checked ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+  });
+});
+document.addEventListener('mousemove', function(e) {
+    const patch = document.getElementById('color-patch');
+    patch.style.transform = `translate(${e.clientX - 150}px, ${e.clientY - 150}px)`; 
+  });

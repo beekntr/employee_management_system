@@ -18,46 +18,39 @@ $employee = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Poppins';
+            font-family: 'Poppins', sans-serif;
         }
         body {
+            background: #1a1a2e;
+            color: #ffffff;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
-            background: #e5e5e5;
             display: flex;
             flex-direction: column;
         }
-        .empdsh{
-            margin:auto;
-        }
         .navbar {
-            background-color: #ffffff;
+            background-color: #16213e;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            displ
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .navbar h1 {
             font-size: 24px;
-            color: #333;
-        }
-        .profile-container {
-            position: relative;
+            color: #ffffff;
         }
         .profile-icon {
             width: 50px;
             height: 50px;
-            background-color: #66a6ff;
+            background-image: linear-gradient(120deg, #00aaff 0%, #0066ff 100%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -68,127 +61,92 @@ $employee = $result->fetch_assoc();
             transition: background 0.3s ease;
         }
         .profile-icon:hover {
-            background-color: #89f7fe;
+            background-image: linear-gradient(120deg, #0066ff 0%, #00aaff 100%);
         }
         .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            z-index: 1000;
+            background-color: #16213e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            text-align: center;
-            color: #333;
-            text-decoration: none;
+            color: #ffffff;
         }
         .dropdown-menu a:hover {
-            background-color: #f0f0f0;
-        }
-        .content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #0e153a;
         }
         .content-box {
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-            border-radius: 10px;
-            box-shadow: -3px -3px 7px #ffffff73,
-                        2px 2px 5px rgba(94, 104, 121, 0.288);
+            background: #16213e;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px #0e153a, 5px 5px 15px #ffffff1a;
+            animation: fadeInDown 1s 2s;
         }
-        h1 {
-            font-size: 28px;
-            font-weight: 400;
-            margin-bottom: 20px;
-            color: #595959;
-            text-align: center;
+        h1, p {
+            color: #ffffff;
         }
-        p {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #595959;
-        }
-
-        @media (max-width: 768px) {
-            .navbar h1 {
-                font-size: 20px;
-            }
-            .content-box {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar h1 {
-                font-size: 18px;
-            }
-            .content-box {
-                padding: 15px;
-            }
-            p {
-                font-size: 14px;
-            }
+        #color-patch {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(0, 153, 255, 0.6), rgba(0, 204, 204, 0.6), rgba(0, 0, 102, 0.6));
+            pointer-events: none;
+            filter: blur(100px);
+            opacity: 1.5;
+            transition: transform 0.1s ease-out;
         }
     </style>
 </head>
 <body>
+    <div id="color-patch"></div>
+
     <div class="navbar">
-        <h1 class= "empdsh">Employee Dashboard</h1>
+        <h1 class="empdsh">Employee Dashboard</h1>
         <div class="profile-container">
             <div class="profile-icon" onclick="toggleDropdown()">
                 <?php echo strtoupper($employee['name'][0]); ?>
             </div>
-            <div id="dropdown-menu" class="dropdown-menu">
-                <a href="logout.php">Logout</a>
+            <div id="dropdown-menu" class="dropdown-menu hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                <a href="logout.php" class="block px-4 py-2 text-sm">Logout</a>
             </div>
         </div>
     </div>
 
-    <div class="content">
-        <div class="content-box animate__animated animate__fadeInUp">
-            <h1>Welcome, <?php echo $employee['name']; ?>!</h1>
+    <div class="flex-grow flex justify-center items-center">
+        <div class="content-box w-full max-w-md p-8 animate__animated animate__fadeInUp">
+            <h1 class="text-2xl font-semibold mb-6 text-center">Welcome, <?php echo $employee['name']; ?>!</h1>
             <div>
-                <p><strong>Phone:</strong> <?php echo $employee['phone']; ?></p>
-                <p><strong>Email:</strong> <?php echo $employee['email']; ?></p>
-                <p><strong>Home Address:</strong> <?php echo $employee['address']; ?></p>
-                <p><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
-                <p><strong>Age:</strong> <?php echo $employee['age']; ?></p>
+                <p class="mb-2"><strong>Phone:</strong> <?php echo $employee['phone']; ?></p>
+                <p class="mb-2"><strong>Email:</strong> <?php echo $employee['email']; ?></p>
+                <p class="mb-2"><strong>Home Address:</strong> <?php echo $employee['address']; ?></p>
+                <p class="mb-2"><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
+                <p class="mb-2"><strong>Age:</strong> <?php echo $employee['age']; ?></p>
             </div>
         </div>
     </div>
 
     <script>
         function toggleDropdown() {
-            var dropdown = document.getElementById('dropdown-menu');
-            if (dropdown.style.display === 'block') {
-                dropdown.style.display = 'none';
-            } else {
-                dropdown.style.display = 'block';
-            }
+            const dropdown = document.getElementById('dropdown-menu');
+            dropdown.classList.toggle('hidden');
         }
 
         window.onclick = function(event) {
             if (!event.target.matches('.profile-icon')) {
-                var dropdown = document.getElementById('dropdown-menu');
-                if (dropdown.style.display === 'block') {
-                    dropdown.style.display = 'none';
+                const dropdown = document.getElementById('dropdown-menu');
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
                 }
             }
         }
+
+        document.addEventListener('mousemove', (e) => {
+            const colorPatch = document.getElementById('color-patch');
+            const x = e.clientX;
+            const y = e.clientY;
+            colorPatch.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
+        });
     </script>
 </body>
 </html>
-
 <?php
 $conn->close();
 ?>
